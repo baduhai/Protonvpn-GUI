@@ -1,7 +1,7 @@
 # Protonvpn-GUI
-A GUI for protonvpn-cli written with QT for Linux
+A GUI for protonvpn-cli written with QT for Linux.
 
-Work in progress.
+*Work in progress.*
 
 ## To-Do
-[] Everything
+[ ] Everything
