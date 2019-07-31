@@ -5,7 +5,6 @@
 #include <QProcess>
 #include <QString>
 
-
 void iPfetch(Ui::MainWindow* ui) // Fetching IP address
 {
     fetchIP.start(ipCmd); // Start process fetchIP
@@ -22,13 +21,29 @@ void statFetch(Ui::MainWindow* ui) // Fetching connection status
     QString outputStatRaw(fetchStat.readAllStandardOutput()); // Store output of fetchStat
     QString outputStat = outputStatRaw.split("\n").at(0); // Parse output of fetchStat
     // Determine whether connected or not and display output of outputStat
-    if (outputStat=="[OpenVPN Status]: Not Running") {
+    if (outputStat == "[OpenVPN Status]: Not Running") {
         outputStat = "Disconnected";
+        ui->securecoreBtn->setEnabled(1);
+        ui->torBtn->setEnabled(1);
+        ui->p2pBtn->setEnabled(1);
+        ui->fastBtn->setEnabled(1);
+        ui->lastBtn->setEnabled(1);
+        ui->randomBtn->setEnabled(1);
+        ui->reconnectBtn->setEnabled(0);
+        ui->connectBtn->setText("Connect");
         ui->statusVal->setText(outputStat);
         ui->statusVal->setStyleSheet("QLabel { color : red; }");
     }
-    else if (outputStat=="[OpenVPN Status]: Running") {
+    else if (outputStat == "[OpenVPN Status]: Running") {
         outputStat = "Connected";
+        ui->securecoreBtn->setEnabled(0);
+        ui->torBtn->setEnabled(0);
+        ui->p2pBtn->setEnabled(0);
+        ui->fastBtn->setEnabled(0);
+        ui->lastBtn->setEnabled(0);
+        ui->randomBtn->setEnabled(0);
+        ui->reconnectBtn->setEnabled(1);
+        ui->connectBtn->setText("Disconnect");
         ui->statusVal->setText(outputStat);
         ui->statusVal->setStyleSheet("QLabel { color : green; }");
     }

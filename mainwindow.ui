@@ -75,7 +75,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="ReconnectBtn">
+         <widget class="QPushButton" name="reconnectBtn">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -155,7 +155,7 @@
            <string>Connect</string>
           </property>
           <property name="default">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
          </widget>
         </item>

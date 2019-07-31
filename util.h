@@ -14,6 +14,7 @@ void iPfetch(Ui::MainWindow* ui); // Fetching IP address
 
 const static QString statCmd(protonCli+"-status"); // Set command to determine connection
 static QProcess fetchStat; // Initialise process fetchStat
+static QString outputStat;
 void statFetch(Ui::MainWindow* ui); // Fetching connection status
 
 const static QString sscCmd(protonCli+"sc"); // Set command to connect "Secure Core"
