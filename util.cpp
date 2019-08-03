@@ -98,7 +98,7 @@ void disconnect() // Disconnect
 void sourcesFetch(Ui::MainWindow* ui) // Fetch sources
 {
     request.setUrl(sourcesUrl);
-    //QJsonDocument sources = request.
+    QJsonDocument sources = request.swap()
 }
 
 
