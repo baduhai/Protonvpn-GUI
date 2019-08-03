@@ -1,7 +1,15 @@
 #include <QProcess>
 #include <QString>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "credentials.h"
 
 #ifndef UTIL_H
 #define UTIL_H
@@ -19,7 +27,7 @@ void statFetch(Ui::MainWindow* ui); // Fetching connection status
 
 const static QString sscCmd(protonCli+"sc"); // Set command to connect "Secure Core"
 static QProcess sscConnect; // Initialise process sscConnect
-void connectSCC(); // Safety Core Connect
+void connectSCC(); // Secure Core Connect
 
 const static QString torCmd(protonCli+"tor"); // Set command to connect TOR
 static QProcess torConnect; // Initialise process torConnect
@@ -44,5 +52,11 @@ void connectRandom(); // Random Connect
 const static QString disconnectCmd(protonCli+"d"); // Set command to disconnect
 static QProcess disConnect; // Initialise process disConnect
 void disconnect(); // Disconnect
+
+const static QUrl sourcesUrl("https://api.protonmail.ch/vpn/logicals/"); // Set URL of adress list
+static QNetworkRequest request; // Initialise network request "request"
+const static  QStringList labels = { "#", "Country", "City", "Domain", "IP", "Load" }; // Set headings
+static QJsonDocument sources;
+void sourcesFetch(Ui::MainWindow* ui); // Fetch sources
 
 #endif // UTIL_H
