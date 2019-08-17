@@ -3,6 +3,8 @@ A GUI for protonvpn-cli written with QT. Designed for Linux.
 
 *Work in progress.*
 
+![Screenshot](screenshot.png)
+
 ## Installation
 
 ### Linux
