@@ -15,6 +15,7 @@
 #define UTIL_H
 
 const static QString protonCli = "/usr/bin/protonvpn-cli -"; // Set master protonvpn-cli command
+const static QString elevatedProtonCli = "pkexec /usr/bin/protonvpn-cli -"; // Set master protonvpn-cli command
 
 const static QString ipCmd(protonCli+"-ip"); // Set command to find IP
 static QProcess fetchIP; // Initialise process fetchIP
@@ -25,31 +26,31 @@ static QProcess fetchStat; // Initialise process fetchStat
 static QString outputStat;
 void statFetch(Ui::MainWindow* ui); // Fetching connection status
 
-const static QString sscCmd(protonCli+"sc"); // Set command to connect "Secure Core"
+const static QString sscCmd(elevatedProtonCli+"sc"); // Set command to connect "Secure Core"
 static QProcess sscConnect; // Initialise process sscConnect
 void connectSCC(); // Secure Core Connect
 
-const static QString torCmd(protonCli+"tor"); // Set command to connect TOR
+const static QString torCmd(elevatedProtonCli+"tor"); // Set command to connect TOR
 static QProcess torConnect; // Initialise process torConnect
 void connectTOR(); // TOR Connect
 
-const static QString p2pCmd(protonCli+"p2p"); // Set command to connect P2P
+const static QString p2pCmd(elevatedProtonCli+"p2p"); // Set command to connect P2P
 static QProcess p2pConnect; // Initialise process p2pConnect
 void connectP2P(); // P2P Connect
 
-const static QString fastCmd(protonCli+"f"); // Set command to connect fastest server
+const static QString fastCmd(elevatedProtonCli+"f"); // Set command to connect fastest server
 static QProcess fastConnect; // Initialise process fastConnect
 void connectFast(); // Fastest Connect
 
-const static QString lastCmd(protonCli+"l"); // Set command to connect last server
+const static QString lastCmd(elevatedProtonCli+"l"); // Set command to connect last server
 static QProcess lastConnect; // Initialise process lastConnect
 void connectLast(); // Last Connect
 
-const static QString randomCmd(protonCli+"r"); // Set command to connect random server
+const static QString randomCmd(elevatedProtonCli+"r"); // Set command to connect random server
 static QProcess randomConnect; // Initialise process randomConnect
 void connectRandom(); // Random Connect
 
-const static QString disconnectCmd(protonCli+"d"); // Set command to disconnect
+const static QString disconnectCmd(elevatedProtonCli+"d"); // Set command to disconnect
 static QProcess disConnect; // Initialise process disConnect
 void disconnect(); // Disconnect
 
