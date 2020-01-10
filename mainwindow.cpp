@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "credentials.h"
 #include "util.h"
+#include "about.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -21,6 +22,13 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::on_credentials_clicked()
+{
+    Credentials credentials;
+    credentials.setModal(true);
+    credentials.exec();
+}
+
+void MainWindow::on_actionCredentials_triggered()
 {
     Credentials credentials;
     credentials.setModal(true);
@@ -77,4 +85,13 @@ void MainWindow::on_randomBtn_clicked()
 void MainWindow::on_connectBtn_clicked()
 {
     disconnect();
+    iPfetch(ui);
+    statFetch(ui);
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    About about;
+    about.setModal(true);
+    about.exec();
 }

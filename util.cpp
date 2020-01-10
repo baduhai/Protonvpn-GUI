@@ -86,13 +86,15 @@ void connectRandom() // Random Connect
 
 void disconnect() // Disconnect
 {
-    if (outputStat == "Connected") {
+    disConnect.start(disconnectCmd); // Start process disConnect
+    disConnect.waitForFinished(); // Wait for process disConnect to finish
+    /*if (ui->reconnectBtn->isEnabled()) {
         disConnect.start(disconnectCmd); // Start process disConnect
         disConnect.waitForFinished(); // Wait for process disConnect to finish
     }
     else {
 
-    }
+    }*/
 }
 
 void sourcesFetch(Ui::MainWindow* ui) // Fetch sources

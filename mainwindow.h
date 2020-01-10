@@ -27,6 +27,10 @@ private slots:
 
     void on_connectBtn_clicked();
 
+    void on_actionAbout_triggered();
+
+    void on_actionCredentials_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

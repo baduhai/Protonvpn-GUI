@@ -25,17 +25,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        about.cpp \
         credentials.cpp \
         main.cpp \
         mainwindow.cpp \
         util.cpp
 
 HEADERS += \
+        about.h \
         credentials.h \
         mainwindow.h \
         util.h
 
 FORMS += \
+        about.ui \
         credentials.ui \
         mainwindow.ui
 
